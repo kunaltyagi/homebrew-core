@@ -2,14 +2,11 @@ class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "https://pointclouds.org/"
   license "BSD-3-Clause"
-  revision 8
+  revision 1
 
   stable do
-    url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.11.1.tar.gz"
-    sha256 "a61558e53abafbc909e0996f91cfd2d7a400fcadf6b8cfb0ea3172b78422c74e"
-
-    # VTK 9 will be supported in PCL 1.12.
-    depends_on "vtk@8.2"
+    url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.12.0.tar.gz"
+    sha256 "e94e5ebbc3c164bc3f517151fc99145ead29061ed882b0846920b81a83dbc326"
   end
 
   bottle do
@@ -22,8 +19,6 @@ class Pcl < Formula
 
   head do
     url "https://github.com/PointCloudLibrary/pcl.git"
-
-    depends_on "vtk"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -38,6 +33,7 @@ class Pcl < Formula
   depends_on "libusb"
   depends_on "qhull"
   depends_on "qt@5"
+  depends_on "vtk"
 
   def install
     args = std_cmake_args + %w[
